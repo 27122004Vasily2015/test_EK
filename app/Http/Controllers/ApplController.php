@@ -22,7 +22,7 @@ class ApplController extends Controller
             'user_id'=>'required',
         ]);
 
-        Application::create(['title'=>$request->title, 'Description'=>$request->Description, 'date'=>$request->date, 'address'=>$request->address, 'phone'=>$request->phone, 'status'=>'Новая', 'user_id'=>'1']);
+        Application::create(['title'=>$request->title, 'Description'=>$request->Description, 'date'=>$request->date, 'address'=>$request->address, 'phone'=>$request->phone, 'status'=>'Новая',  'user_id' => $request->user_id]);
          
         return redirect()->route('user');
     }

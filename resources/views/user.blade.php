@@ -4,15 +4,15 @@
 
  <div class="container">
    
-    <form action="{{route(create)}}" method="post">
+    <form action="{{route('create')}}" method="post">
         @csrf
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">title</label>
-        <input type="email" class="form-control" id="title" name="title">
+        <input type="text" class="form-control" id="title" name="title">
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Description</label>
-        <input type="password" class="form-control" id="Description" name="Description">
+        <input type="text" class="form-control" id="Description" name="Description">
     </div>
     <div class="mb-3">
         <select name="service_type " id="" name="service_type">service_type</select>
@@ -26,11 +26,9 @@
         <input type="text" class="form-control" id="address" name="address">
     </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">status</label>
         <input type="hidden" class="form-control" id="status" name="status" value="Новая">
     </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">user_id</label>
         <input type="hidden" class="form-control" id="user_id" name="user_id" value="1">
     </div>
     <button type="submit" class="btn btn-primary">Создать</button>

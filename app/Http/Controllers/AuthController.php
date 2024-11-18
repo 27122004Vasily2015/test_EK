@@ -20,7 +20,7 @@ class AuthController extends Controller
             'login' => 'required|string|unique:users',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:6',
-            'phone' => 'required|numeric|digits:13',
+            'phone' => 'required|numeric',
             
         ]);
     
@@ -36,11 +36,11 @@ class AuthController extends Controller
     public function signin(Request $request){
         $request->validate([
             'login' =>'required|string', 
-            'password'=>'required|string|min:6',
+            'password'=>'required|string',
         ]);
 
-        if(Auth::attempt(['login'=>$request->login, 'password'=>$request->password, 'phone'=>$request->phone])){
-            $user->User::all();
+        if (Auth::attempt(['login' => $request->login, 'password' => $request->password])){
+            $user = Auth::user();
             if($user->role=='Админ'){
                 return redirect()->route('admin');
             }else {
